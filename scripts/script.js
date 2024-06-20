@@ -20,9 +20,9 @@ for (const btn of allBtn) {
         const phoneNumber = document.getElementById("phone-number").value;
         const button = document.getElementById("disable-button");
         if (!isNaN(phoneNumber) && phoneNumber.trim() !== '') {
-
-            button.style.backgroundColor = '#1DD100';
             button.disabled = false;
+            button.style.backgroundColor = '#1DD100';
+            
         }
         else {
             button.disabled = true;

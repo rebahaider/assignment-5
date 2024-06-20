@@ -17,6 +17,16 @@ for (const btn of allBtn) {
             document.getElementById("coupon-feild").setAttribute("class", "visible");
             return;
         };
+        const phoneNumber = document.getElementById("phone-number").value;
+        const button = document.getElementById("disable-button");
+        if (!isNaN(phoneNumber) && phoneNumber.trim() !== '') {
+
+            button.style.backgroundColor = '#1DD100';
+            button.disabled = false;
+        }
+        else {
+            button.disabled = true;
+        }
 
         const seatName = e.target.innerText;
         const selectedContainer = document.getElementById("selected-seat-container");
@@ -37,17 +47,12 @@ for (const btn of allBtn) {
         // grand total calculation
         grandTotalCost();
 
+        // show discount price
+        const discountPrice = document.getElementById("discount-price").innerText;
+
         btn.style.backgroundColor = '#1DD100';
         btn.disabled = true;
-        const phoneNumber = document.getElementById("phone-number").value;
-        const button = document.getElementById("disable-button");
-        if (!isNaN(phoneNumber) && phoneNumber.trim() !== '') {
-            button.disabled = false;
-            button.style.backgroundColor = '#1DD100';
-        }
-        else {
-            button.disabled = true;
-        }
+
         setInnerText("seat-count", seatCount);
         setInnerText("seat-number", seatNumber);
 
@@ -72,10 +77,14 @@ for (const btn of allBtn) {
             if (couponCode == "NEW15") {
                 const discounted = totalCost * 0.15;
                 document.getElementById("grand-total").innerText = totalCost - discounted;
+                document.getElementById("discount-price").innerText = totalCost - discounted;
+                document.getElementById("coupon-feild").setAttribute("class", "hidden");
             }
             else if (couponCode == "Couple 20") {
                 const discounted = totalCost * 0.2;
                 document.getElementById("grand-total").innerText = totalCost - discounted;
+                document.getElementById("discount-price").innerText = totalCost - discounted;
+                document.getElementById("coupon-feild").setAttribute("class", "hidden");
             }
             else {
                 alert("Please enter a valid coupon code");

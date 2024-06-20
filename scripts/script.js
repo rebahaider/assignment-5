@@ -1,39 +1,70 @@
 
-    const btn = document.getElementById('A1');
-    btn.addEventListener('click',function () {
-    btn.style.backgroundColor = '#1DD100';
-});
-    const btnA2 = document.getElementById('A2');
-    btnA2.addEventListener('click',function () {
-    btnA2.style.backgroundColor = '#1DD100';
-});
-    const btnA3 = document.getElementById('A3');
-    btnA3.addEventListener('click',function () {
-    btnA3.style.backgroundColor = '#1DD100';
-});
-    const btnA4 = document.getElementById('A4');
-    btnA4.addEventListener('click',function () {
-    btnA4.style.backgroundColor = '#1DD100';
-});
+//     const btn = document.getElementById('A1');
+//     btn.addEventListener('click',function () {
+//     btn.style.backgroundColor = '#1DD100';
+// });
 
-const btnB1 = document.getElementById('B1');
-btnB1.addEventListener('click',function () {
-btnB1.style.backgroundColor = '#1DD100';
-});
-const btnB2 = document.getElementById('B2');
-btnB2.addEventListener('click',function () {
-btnB2.style.backgroundColor = '#1DD100';
-});
-const btnB3 = document.getElementById('B3');
-btnB3.addEventListener('click',function () {
-btnB3.style.backgroundColor = '#1DD100';
-});
-const btnB4 = document.getElementById('B4');
-btnB4.addEventListener('click',function () {
-btnB4.style.backgroundColor = '#1DD100';
-});
+const allBtn = document.getElementsByClassName("add-btn");
 
-function buttonPress(){
-    console.log('button pressed');
+let seatCount = 0;
+let seatNumber = 40;
+
+for (const btn of allBtn) {
+    btn.addEventListener("click", function (e) {
+
+        seatCount = seatCount + 1;
+        seatNumber = seatNumber - 1;
+
+        // seat limitation
+        const seatLimit = parseInt(4);
+        if (seatLimit - seatCount < 0) {
+            document.getElementById("coupon-feild").setAttribute("class", "visible"); 
+            alert("Seat limitation is full fill");
+            return;
+        };
+
+        const seatName = e.target.innerText;
+        const selectedContainer = document.getElementById("selected-seat-container");
+        const p = document.createElement("p");
+        p.innerText = seatName;
+        const p2 = document.createElement("p");
+        p2.innerText = "Economy";
+        const price = document.createElement("p");
+        price.innerText = 550;
+
+        selectedContainer.appendChild(p);
+        selectedContainer.appendChild(p2);
+        selectedContainer.appendChild(price);
+
+        // total cost calculation
+        totalCost("total-price", parseInt(550));
+
+        // grand total calculation
+        grandTotalCost("grand-total", parseInt(550));
+
+        btn.style.backgroundColor = '#1DD100';
+        btn.disabled = true; 
+        setInnerText("seat-count", seatCount);
+        setInnerText("seat-number", seatNumber);
+
+    });
+
+    // total cost calculation
+    function totalCost(id, value) {
+        const totalCost = document.getElementById(id).innerText;
+        const convertedTotalCost = parseInt(totalCost);
+        const sum = convertedTotalCost + parseInt(value);
+        setInnerText("total-price", sum);
+    }
+    // grand total calculation
+    function grandTotalCost(id, value) {
+        const totalCost = document.getElementById(id).innerText;
+        const convertedTotalCost = parseInt(totalCost);
+        const sum = convertedTotalCost + parseInt(value);
+        setInnerText("grand-total", sum);
+    }
+
+    function setInnerText(id, value) {
+        document.getElementById(id).innerText = value;
+    }
 }
-document.addEventListener('click',buttonPress);

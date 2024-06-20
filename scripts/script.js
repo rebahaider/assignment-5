@@ -1,9 +1,4 @@
 
-//     const btn = document.getElementById('A1');
-//     btn.addEventListener('click',function () {
-//     btn.style.backgroundColor = '#1DD100';
-// });
-
 const allBtn = document.getElementsByClassName("add-btn");
 
 let seatCount = 0;
@@ -44,6 +39,15 @@ for (const btn of allBtn) {
 
         btn.style.backgroundColor = '#1DD100';
         btn.disabled = true;
+        const phoneNumber = document.getElementById("phone-number").value;
+        const button = document.getElementById("disable-button");
+        if (!isNaN(phoneNumber) && phoneNumber.trim() !== '') {
+            button.disabled = false;
+            button.style.backgroundColor = '#1DD100';
+        }
+        else {
+            button.disabled = true;
+        }
         setInnerText("seat-count", seatCount);
         setInnerText("seat-number", seatNumber);
 

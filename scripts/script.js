@@ -18,8 +18,8 @@ for (const btn of allBtn) {
         // seat limitation
         const seatLimit = parseInt(4);
         if (seatLimit - seatCount < 0) {
-            document.getElementById("coupon-feild").setAttribute("class", "visible"); 
-            alert("Seat limitation is full fill");
+            alert("Seat limitation is full and you got discount");
+            document.getElementById("coupon-feild").setAttribute("class", "visible");
             return;
         };
 
@@ -40,10 +40,10 @@ for (const btn of allBtn) {
         totalCost("total-price", parseInt(550));
 
         // grand total calculation
-        grandTotalCost("grand-total", parseInt(550));
+        grandTotalCost();
 
         btn.style.backgroundColor = '#1DD100';
-        btn.disabled = true; 
+        btn.disabled = true;
         setInnerText("seat-count", seatCount);
         setInnerText("seat-number", seatNumber);
 
@@ -57,11 +57,28 @@ for (const btn of allBtn) {
         setInnerText("total-price", sum);
     }
     // grand total calculation
-    function grandTotalCost(id, value) {
-        const totalCost = document.getElementById(id).innerText;
-        const convertedTotalCost = parseInt(totalCost);
-        const sum = convertedTotalCost + parseInt(value);
-        setInnerText("grand-total", sum);
+    function grandTotalCost(status) {
+        const totalCost = document.getElementById("total-price").innerText;
+        if (status == undefined) {
+            const convertedTotalCost = parseInt(totalCost)
+            setInnerText("grand-total", convertedTotalCost);
+        }
+        else {
+            const couponCode = document.getElementById("coupon").value;
+            if (couponCode == "NEW15") {
+                const discounted = totalCost * 0.15;
+                document.getElementById("grand-total").innerText = totalCost - discounted;
+            }
+            else if (couponCode == "Couple 20") {
+                const discounted = totalCost * 0.2;
+                document.getElementById("grand-total").innerText = totalCost - discounted;
+            }
+            else {
+                alert("Please enter a valid coupon code");
+            }
+        }
+
+
     }
 
     function setInnerText(id, value) {

@@ -13,7 +13,7 @@
 
 <body class="font-raleway ">
 
-    <header class="mx-14">
+    <header class="lg:mx-14">
         <!-- nav bar -->
         <div class="navbar bg-base-100">
             <div class="navbar-start">
@@ -26,12 +26,14 @@
                         </svg>
                     </div>
                     <ul tabindex="0"
-                        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 3</a></li>
+                        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box">
+                        <li><a>Home</a></li>
+                        <li><a>About</a></li>
+                        <li><a>Destination</a></li>
+                        <li><a>Search</a></li>
                     </ul>
                 </div>
-                <a class="text-xl font-extrabold">P-Ticket</a>
+                <a class="text-xl font-extrabold">R-Ticket</a>
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal px-1">
@@ -49,70 +51,103 @@
             </div>
         </div>
         <!-- banner section -->
-        <section>
-            <div class="hero min-h-screen" style="background-image: url(images/banner.png);">
-                <div class=""></div>
-                <div class="hero-content text-center text-neutral-content">
-                    <div class="">
-                        <h1 class="mb-5 text-5xl font-bold">End-to-End Travel with
+        <section class="container mt-5 lg:relative">
+            <div class="hero min-h-screen rounded-2xl " style="background-image: url(images/banner.png);">
+                <div class=" text-center text-neutral-content">
+                    <div class="text-white">
+                        <h1 class="mb-5 mt-5 text-4xl lg:text-5xl font-bold">End-to-End Travel with
                             <br>
-                            <span class="text-[#1DD100]">P Paribahan</span>
+                            <span class="text-[#1DD100]">R Paribahan</span>
                         </h1>
                         <p class="mb-5 font-inter">Yes, you can run unit tests and view the results directly within the
                             app. The integrated testing features allow for a streamlined .</p>
-                        <button class="btn bg-[#1DD100] font-bold">Buy Tickets</button>
+                        <button class="btn bg-[#1DD100] font-bold"><a href="#main">Buy Tickets</a></button>
+                    </div>
+                </div>
+            </div>
+            <!-- card over banner -->
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16 text-center lg:absolute lg:-bottom-12 left-32">
+                <div
+                    class="flex lg:gap-5 items-center justify-center rounded-3xl bg-white p-2 lg:py-5 border-b-4 border-b-[#1DD100] w-48 lg:w-72 sm:mr-4">
+                    <img class="sm:w-15 h-15" src="images/people.png" alt="">
+                    <div>
+                        <h1 class="text-2xl lg:text-4xl font-bold">500K+</h1>
+                        <p>Registered users</p>
+                    </div>
+                </div>
+                <div
+                    class="flex lg:gap-5 items-center justify-center rounded-3xl bg-white p-2 lg:py-5 border-b-4 border-b-[#1DD100] w-48 lg:w-72">
+                    <img class="sm:w-15 h-15" src="images/ticket-cupon.png" alt="">
+                    <div>
+                        <h1 class="text-2xl lg:text-4xl font-bold">1.7 lacks</h1>
+                        <p>Tickets sold</p>
+                    </div>
+                </div>
+                <div
+                    class="flex lg:gap-5 items-center justify-center rounded-3xl bg-white p-2 lg:py-5 border-b-4 border-b-[#1DD100] w-48 lg:w-72">
+                    <img class="sm: h-15" src="images/stoppage.png" alt="">
+                    <div>
+                        <h1 class="text-2xl lg:text-4xl font-bold">80K+</h1>
+                        <p>Rental partners</p>
                     </div>
                 </div>
             </div>
         </section>
     </header>
-    <main class="mx-14 my-24">
+    <main class="lg:mx-14 lg:my-24">
         <!-- offer section -->
         <section>
-            <div class="flex justify-between">
-                <div
-                    class="w-[573px] h-[220px] rounded-xl bg-[#FFBF0F] grid grid-cols-2 items-center p-8 divide-x divide-dashed">
-                    <div class="">
+            <h1 class="text-4xl font-bold text-center mb-10">Best offers for you</h1>
+            <div class="space-y-4 lg:flex justify-between">
+                <!-- left side -->
+                <div class="w-[573px] h-[220px] rounded-[40px] bg-[#FFBF0F] grid grid-cols-2 items-center">
+                    <div class="text-center">
                         <h1 class="text-4xl font-bold">15% OFF</h1>
-                        <h3 class="text-xl">on your next purchase</h3>
+                        <h3 class="text-xl font-bold">on your next purchase</h3>
                         <p>use by January 2024</p>
                     </div>
-
-                    <div class="pl-8">
-                        <h1 class="text-4xl font-bold">NEW15</h1>
-                        <p>Coupon Code</p>
+                    <div class="relative">
+                        <img class="h-[220px]" src="images/cupon-devider.png" alt="">
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <h1 class="text-3xl font-bold">NEW15</h1>
+                            <p>Coupon Code</p>
+                        </div>
                     </div>
                 </div>
-                <div
-                    class="w-[573px] h-[220px] rounded-xl bg-[#F78C9C] grid grid-cols-2 items-center p-8 divide-x divide-dashed">
-                    <div class="">
+                <!-- right side -->
+                <div class="w-[573px] h-[220px] rounded-[40px] bg-[#F78C9C] grid grid-cols-2 items-center">
+                    <div class="text-center">
                         <h1 class="text-4xl font-bold">20% OFF</h1>
-                        <h3 class="text-xl">on your next purchase</h3>
+                        <h3 class="text-xl font-bold">on your next purchase</h3>
                         <p>use by January 2024</p>
                     </div>
-
-                    <div class="pl-8">
-                        <h1 class="text-4xl font-bold">Couple 20</h1>
-                        <p>Coupon Code</p>
+                    <div class="relative">
+                        <img class="h-[220px]" src="images/cupon-devider.png" alt="">
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <h1 class="text-3xl font-bold">Couple 20</h1>
+                            <p>Coupon Code</p>
+                        </div>
                     </div>
                 </div>
+
+
             </div>
             <div class="text-center mt-20">
                 <button class="btn btn-outline text-[#1DD100] font-bold">See All Offers</button>
             </div>
         </section>
         <!-- ticket details section -->
-        <section class="bg-[#F7F8F8] rounded-t-[80px] p-10 mt-10 border-t-8 border-t-[#1DD100]">
+        <section id="main" class="bg-[#F7F8F8] rounded-t-[80px] p-10 mt-10 border-t-8 border-t-[#1DD100]">
             <div class="space-y-3 mb-10">
-                <h1 class="text-4xl font-bold text-center mt-20">P.H Paribahan</h1>
-                <p class="font-inter text-center">Yes, you can run unit tests and view the results directly within the
-                    app. The integrated testing features allow for a streamlined .</p>
+                <h1 class="text-4xl font-bold text-center mt-20">R.H Paribahan</h1>
+                <p class="font-inter text-center">R.H. Paribohon is a renowned transportation company in Bangladesh
+                    known for its reliable and efficient logistics and delivery services.</p>
             </div>
-            <section class="bg-[#FFFFFF] p-6 rounded-2xl grid grid-cols-3 divide-x divide-dashed">
+            <section class="bg-[#FFFFFF] p-6 rounded-2xl grid grid-cols-3">
                 <div class="grid col-span-2">
-                    <div class="flex gap-10">
+                    <div class="flex items-center justify-center gap-10">
                         <div class=" flex gap-10">
-                            <img src="images/bus-logo.png" alt="">
+                            <img class="w-10 h-10" src="images/bus-logo.png" alt="">
                             <div class="space-y-2">
                                 <h1 class="text-4xl">
                                     Greenline Paribahan</h1>
@@ -145,10 +180,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="p-5">
-                    <img class="" src="images/fare.png" alt="">
-                    <h3 class="font-bold text-xl text-black ">550 Taka</h3>
-                    <p>Per Seat</p>
+                <div class="p-5 relative">
+                    <img src="images/info-devider.png" alt="">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <img class="" src="images/fare.png" alt="">
+                        <h3 class="font-bold text-xl text-black ">550 Taka</h3>
+                        <p>Per Seat</p>
+                    </div>
                 </div>
 
             </section>
@@ -256,7 +294,8 @@
                         <div id="coupon-feild" class="relative hidden">
                             <input type="text" name="coupon" id="coupon" placeholder="Have Any Coupon"
                                 class="w-full p-4 rounded-lg">
-                            <button onclick="grandTotalCost('a')" class="btn bg-[#1DD100] font-bold px-10 absolute right-60 mt-1">Apply</button>
+                            <button onclick="grandTotalCost('a')"
+                                class="btn bg-[#1DD100] font-bold px-10 absolute right-60 mt-1">Apply</button>
                         </div>
                         <div class="grid grid-cols-3 font-bold mt-10">
                             <h1 class="col-span-2">Grand Total</h1>
@@ -309,10 +348,10 @@
             </section>
         </section>
     </main>
-    <footer class="footer p-10 bg-neutral text-neutral-content">
+    <footer class="footer p-10 bg-black text-neutral-content items-center justify-center gap-24">
         <aside>
-            <h1 class="text-2xl text-white font-bold">P-Ticket</h1>
-            <p>P-Ticket is a digital platform to make your<br>daily commuting better.</p>
+            <h1 class="text-2xl text-white font-bold">R-Ticket</h1>
+            <p>R-Ticket is a digital platform to make your<br>daily commuting better.</p>
 
         </aside>
         <nav>
